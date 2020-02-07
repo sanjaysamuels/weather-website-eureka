@@ -10,7 +10,8 @@ const forecast = (lon, lat, callback) => {
             callback('Could not find locaton!')
         }
         else {
-            callback(undefined, response.body.daily.data[0].summary +" It is currently " +response.body.currently.temperature+ " degrees out. There is a " +response.body.currently.precipProbability+ "% chance of rain.")
+            console.log(response.body.daily.data[0])
+            callback(undefined, response.body.daily.data[0].summary +" It is currently " +response.body.currently.temperature+ " degrees out. There is a " +response.body.currently.precipProbability+ "% chance of rain. The higest temperature today will be " +response.body.daily.data[0].temperatureHigh+ " and the lowest temperature today will be " +response.body.daily.data[0].temperatureLow)
         }
     })
 
