@@ -1,6 +1,5 @@
 const request = require('request')
 
-
 const forecast = (lon, lat, callback) => {
     const url = 'https://api.darksky.net/forecast/9f8cf73b800194be565ab418fb29e1d3/' +lon +',' + lat
     request({url:url, json: true}, (error, response) => {
@@ -11,7 +10,9 @@ const forecast = (lon, lat, callback) => {
         }
         else {
             console.log(response.body.daily.data[0])
-            callback(undefined, response.body.daily.data[0].summary +" It is currently " +response.body.currently.temperature+ " degrees out. There is a " +response.body.currently.precipProbability+ "% chance of rain. The higest temperature today will be " +response.body.daily.data[0].temperatureHigh+ " and the lowest temperature today will be " +response.body.daily.data[0].temperatureLow)
+            callback(undefined, response.body.daily.data[0].summary +" It is currently " +response.body.currently.temperature+ 
+            "°F outside. The higest temperature today will be " +response.body.daily.data[0].temperatureHigh+ "°F and the lowest will be " +response.body.daily.data[0].temperatureLow +
+            "°F. There is a " +response.body.currently.precipProbability+ "% chance of rain. And visibility will be " + response.body.daily.data[0].visibility +".")
         }
     })
 

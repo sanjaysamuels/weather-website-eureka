@@ -3,7 +3,7 @@ const search = document.querySelector('input')
 const message1 = document.querySelector('#message1')
 const message2 = document.querySelector('#message2')
 
-message1.textContent = 'Powered by Java'
+message1.textContent = 'Developed in Note.js'
  
 // e stand for event 
 weatherForm.addEventListener('submit', (e) => {
